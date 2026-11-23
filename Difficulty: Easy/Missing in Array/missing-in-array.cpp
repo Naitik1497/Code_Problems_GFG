@@ -1,12 +1,18 @@
 class Solution {
-  public:
+public:
     int missingNum(vector<int>& arr) {
-        long n = arr.size()+1;
-        long real = (n*(n+1))/2;
-        int sum = 0;
-        for(int i=0;i<n-1;i++){
-            sum+=arr[i];
+        long long n = arr.size() + 1;
+
+        // Sum of first n natural numbers
+        long long totalSum = n * (n + 1) / 2;
+
+        // Calculate sum of elements in arr
+        long long arrSum = 0;
+        for (int num : arr) {
+            arrSum += num;
         }
-        return (real-sum);
+
+        // The difference is the missing number
+        return totalSum - arrSum;
     }
 };
